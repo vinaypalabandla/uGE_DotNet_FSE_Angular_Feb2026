@@ -1,0 +1,54 @@
+body {
+    background-color: #e6e6fa;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Card styling */
+.card {
+    background-color: white;
+    padding: 25px;              /* inside spacing */
+    border: 2px solid purple;   /* border */
+    border-radius: 10px;        /* rounded corners */
+    margin: 20px;               /* outside spacing */
+    width: 300px;
+    text-align: center;
+}
+
+/* Name styling */
+.name {
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Role styling */
+.role {
+    color: gray;
+    margin: 8px 0;
+}
+
+/* Bio styling */
+.bio {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Button styling */
+.contact-btn {
+    background-color: purple;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.contact-btn:hover {
+    background-color: darkviolet;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Blog Layout</title>
+    <style>
+
+
+        body {
+            margin: 10px;
+            font-family: Arial, sans-serif;
+            background-color: lightseagreen;
+        }
+
+        header {
+            background-color: violet;
+            color: orangered;
+            text-align: center;
+            padding: 2px;
+        }
+
+        .blog-container {
+            display: flex;
+            padding: 2px;
+           
+        }
+
+        .blog-card {
+            background-color:lightcoral;
+            border: 10px solid blue;
+            padding: 5px;
+            flex: 'grow shrink basis';
+        }
+
+        .blog-card h3 {
+            margin-top: 10px;
+            color:red;
+        }
+
+        .blog-card p {
+            color: black;
+           
+        }
+
+        .blog-card button {
+            padding: 2px 4px;
+            background-color:skyblue;
+            color: maroon;
+            cursor: pointer;
+        }
+
+        .blog-card button:hover {
+            background-color: brown;
+        }
+
+
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>My Blog</h1>
+</header>
+
+<main class="blog-container">
+
+    <div class="blog-card">
+        <h3>Blog Title One</h3>
+        <p>This is a short description of the blog article. It gives a quick overview of the content.</p>
+        <button>Read More</button>
+    </div>
+
+    <div class="blog-card">
+        <h3>Blog Title Two</h3>
+        <p>This is a short description of the blog article. It gives a quick overview of the content.</p>
+        <button>Read More</button>
+    </div>
+
+    <div class="blog-card">
+        <h3>Blog Title Three</h3>
+        <p>This is a short description of the blog article. It gives a quick overview of the content.</p>
+        <button>Read More</button>
+    </div>
+
+
+
+
+</main>
+
+</body>
+</html>
