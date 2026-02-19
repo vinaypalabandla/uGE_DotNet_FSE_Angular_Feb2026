@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Analysis Tool</title>
+</head>
+<body>
+
+<h2>Number Analysis Tool</h2>
+<p id="result"></p>
+
+<script>
+   
+    let num = 11;   
+    // Ternary operator
+    let word = (num >= 0) ? "Positive" : "Negative";
+
+    let parity;
+
+    if (num % 2 == 0) {
+        parity = "Even";
+    } else {
+        parity = "Odd";
+    }
+
+     console.log("Number is: " + word);    //visable on console
+    console.log("Number is: " + parity);   //visable on console
+
+     document.getElementById("result").innerHTML =
+        "Number is: " + word + "<br>" +
+        "Number is: " + parity + "<br><br>" +
+        "Numbers from 1 to " + num + ":<br>";
+   
+
+    for (let i = 1; i <= num; i++) {
+        console.log(i);
+        document.getElementById("result").innerHTML += i + " ";
+    }
+    
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traffic Signal Simulator</title>
+</head>
+<body>
+
+<h2>Traffic Signal Simulator</h2>
+<h1><p id="output"></p></h1>
+
+<script>
+
+    let signal = "green";
+    let message;
+
+    switch (signal) {
+        case "red":
+            message = "Stop";
+            break;
+
+        case "yellow":
+            message = "Get Ready";
+            break;
+
+        case "green":
+            message = "Go Fast";
+            break;
+
+        default:
+            message = "Invalid Signal(wrongWay)";
+    }
+
+    console.log(message);  // it represents in the console
+
+    document.getElementById("output").innerHTML = message; // it represents the web page
+    //here
+    //documnet means---> Represents the whole HTML page
+    //getElementById("output") --->Selects the HTML element with id="output"
+    //innerHTML ---> Sets or changes the content inside that element
+    // message --->Displays the value of message on the webpage
+</script>
+
+</body>
+</html>
