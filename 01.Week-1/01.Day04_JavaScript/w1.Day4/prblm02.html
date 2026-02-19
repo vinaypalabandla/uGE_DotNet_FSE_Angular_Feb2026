@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Evaluator</title>
+</head>
+<body>
+    <h2>Student Grade Evalutionr</h2>
+<h2><p id="result"></p></h2>
+
+
+<script>
+    
+
+    let marks = 85;   
+
+    if (marks >= 75) {
+        console.log("Grade A");
+        document.write("Grade A");
+        
+    } 
+    else if (marks >= 60) {
+        console.log("Grade B");
+        
+    } 
+    else if (marks >= 40) {
+        console.log("Grade C");
+       
+    } 
+    else {
+        console.log("Fail");    
+    }
+
+    console.log(marks);
+    document.getElementById("result").innerHTML = marks;
+        //here
+    //documnet means---> Represents the whole HTML page
+    //getElementById("marks") --->Selects the HTML element with id="marks"
+    //innerHTML ---> Sets or changes the content inside that element visiable
+    // message --->Displays the value of message on the webpage
+</script>
+
+</body>
+</html>

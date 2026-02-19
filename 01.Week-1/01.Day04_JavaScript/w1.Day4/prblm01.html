@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: grey;
+        }
+
+        nav {
+            display: flex;
+            background-color: rgb(197, 130, 130);
+        }
+
+        nav a {
+            color: white;
+            padding: 15px;
+            text-decoration: none; /* underline hide under home,about */
+            flex: 11;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 32px;
+            text-align: center;
+        }
+         h2 {
+                text-align:center;
+                color: yellow;
+            }
+
+        /*here iam using  Media Query for Mobile */
+        
+        @media (max-width: 600px) {
+            body {
+                background-color: lightcoral;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+           h2 {
+            font-size: 20x;
+           }
+
+            nav {
+                flex-direction: column;
+            }
+
+            nav a {
+                border-top: 1px solid orange;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+    <a href="#">Support</a>
+    <a href="#">Q&A</a>
+</nav>
+
+<h1>Responsive Webpage</h1>
+<h2>Ai is the future Revolution</h2>
+
+</body>
+</html>
