@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Info Display</title>
+</head>
+<body>
+
+    <h2>User Information</h2>
+
+    <button onclick="handleClick()">Display User Info</button>
+
+    <div id="output"></div>
+
+    <script>
+        function handleClick() {
+
+            // Creating object inside function (no global variable)
+            const user = {
+                name: "Vinay",
+                age: 24,
+                city: "Bangalore"
+            };
+
+            displayUserInfo(user);
+        }
+
+        function displayUserInfo(userObj) {
+
+            const outputDiv = document.getElementById("output");
+
+            // Clearing previous content
+            outputDiv.innerHTML = "";
+
+            // Creating paragraph elements dynamically
+            const namePara = document.createElement("p");
+            namePara.textContent = "Name: " + userObj.name;
+
+            const agePara = document.createElement("p");
+            agePara.textContent = "Age: " + userObj.age;
+
+            const cityPara = document.createElement("p");
+            cityPara.textContent = "City: " + userObj.city;
+
+            // Appending to div
+            outputDiv.appendChild(namePara);
+            outputDiv.appendChild(agePara);
+            outputDiv.appendChild(cityPara);
+        }
+    </script>
+
+</body>
+</html>

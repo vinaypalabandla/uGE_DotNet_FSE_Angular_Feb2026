@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Profile Manager</title>
+    <style>
+        #profileCard {
+            width: 500px;
+            padding: 25px;
+            border: 10px solid #af664c;
+            border-radius: 25px;
+            background-color: #f9f9f9;
+            font-family: Arial, sans-serif;
+            margin-top: 15px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 10px 25px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Student Profile</h2>
+
+    <div id="profileCard"></div>
+
+    <button id="updateBtn">Update Marks</button>
+
+    <script>
+
+        // ✅ Global Student Object
+        const student = {
+            name: "Vinay",
+            rollNo: "CS101",
+            marks: 85
+        };
+
+        // Function to display student details
+        function updateStudentProfile(studentObj) {
+
+            const profileDiv = document.getElementById("profileCard");
+
+            profileDiv.innerHTML = `
+                <p><strong>Name:</strong> ${studentObj.name}</p>
+                <p><strong>Roll No:</strong> ${studentObj.rollNo}</p>
+                <p><strong>Marks:</strong> ${studentObj.marks}</p>
+            `;
+        }
+
+        // Function to update marks
+        function updateMarks(newMarks) {
+            student.marks = newMarks;   // Updating object using parameter
+            updateStudentProfile(student);  // Refresh display
+        }
+
+        // display
+        updateStudentProfile(student);
+
+        // Event Listener 
+        document.getElementById("updateBtn")
+                .addEventListener("click", function () {
+                    const newMarks = prompt("Enter new marks:");
+                    if (newMarks !== null && newMarks !== "") {
+                        updateMarks(parseInt(newMarks));
+                    }
+                });
+
+    </script>
+
+</body>
+</html>
