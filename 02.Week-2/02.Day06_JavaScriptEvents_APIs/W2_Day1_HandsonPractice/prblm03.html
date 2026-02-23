@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Location-Based Weather Logger</title>
+</head>
+<body onload="loadHistory()">
+
+<h2>Location Logger</h2>
+
+<button onclick="getLocation()">Get My Location</button>
+
+<p id="output"></p>
+
+<h3>Last 5 Locations</h3>
+<ul id="history"></ul>
+
+<script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
+    } else {
+        document.getElementById("output").innerHTML = "Geolocation not supported.";
+    }
+}
+
+function successCallback(position) {
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+
+    document.getElementById("output").innerHTML =
+        "Latitude: " + latitude + "<br>Longitude: " + longitude;
+
+    let locationData = {
+        latitude: latitude,
+        longitude: longitude,
+        time: new Date().toLocaleString()
+    };
+
+    let history = JSON.parse(localStorage.getItem("locations")) || [];
+    history.unshift(locationData);
+
+    if (history.length > 5) {
+        history = history.slice(0, 5);
+    }
+
+    localStorage.setItem("locations", JSON.stringify(history));
+    displayHistory(history);
+}
+
+function errorCallback(error) {
+    let message = "";
+
+    switch (error.code) {
+        case error.PERMISSION_DENIED:
+            message = "Permission denied.";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            message = "Location unavailable.";
+            break;
+        case error.TIMEOUT:
+            message = "Request timeout.";
+            break;
+        default:
+            message = "Unknown error.";
+    }
+
+    document.getElementById("output").innerHTML = message;
+}
+
+function loadHistory() {
+    let history = JSON.parse(localStorage.getItem("locations")) || [];
+    displayHistory(history);
+}
+
+function displayHistory(history) {
+    let historyList = document.getElementById("history");
+    historyList.innerHTML = "";
+
+    history.forEach(function(item) {
+        let li = document.createElement("li");
+        li.innerHTML = 
+            "Lat: " + item.latitude + 
+            ", Lon: " + item.longitude + 
+            " (" + item.time + ")";
+        historyList.appendChild(li);
+    });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Notes Saver</title>
+</head>
+<body onload="loadNote()"> <!--onload is  a event  its runs function 
+     when the page loads completely and need to automatically load saved note
+    -->
+
+    <h2>Personal Notes Saver</h2>
+
+           <!--id=noteares  helps js acess this element-->
+    <textarea id="noteArea" rows="20" cols="90" placeholder="Write your notes here..."></textarea>
+    <br><br>
+    <!--on click is inline event when save note() runs its is perfrom -->
+    <button onclick="saveNote()">Save</button>
+    <button onclick="clearNote()">Clear</button>
+
+    <script>
+        function saveNote() {
+            //selet text area and value is get text written inside it
+            let note = document.getElementById("noteArea").value; // value is user text
+            localStorage.setItem("myNote", note);  //using local storage save data in browser storage
+            alert("Saved");
+        }
+
+    function loadNote() {
+            let savedNote = localStorage.getItem("myNote"); //getitem is Getstored data exists inside text area
+            if (savedNote !== null) {
+                document.getElementById("noteArea").value = savedNote;
+            }
+        }
+            //clear note function name
+  function clearNote() {
+            localStorage.removeItem("myNote"); // delete stored data
+            document.getElementById("noteArea").value = "";
+            alert("Cleared");// using alert() to chekc this confirmation 
+        }
+    </script>
+
+</body>
+</html>
