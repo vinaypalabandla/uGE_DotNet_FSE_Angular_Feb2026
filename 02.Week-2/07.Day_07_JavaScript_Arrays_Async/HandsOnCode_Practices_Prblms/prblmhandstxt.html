@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Filter</title>
+</head>
+<body>
+
+<h2>Employee Management</h2>
+
+<select id="jobSelect">   <!--select used for drop down list here-->
+    <option value="All">All Employees</option>  <!--option used for -showsoptions-->
+    <option value="Manager">Manager</option>
+    <option value="Salesman">Salesman</option>
+    <option value="Developer">Developer</option>
+</select>
+
+<button onclick="showEmployees()">Show Emps</button>
+
+<br/><br/>
+
+
+<!--using tables here-->
+<table border="3" id="empTable">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody"></tbody> <!-- tbody is used employee rows will be inserted dynamically -->
+
+</table>
+
+<script>
+    const employees = [
+        { id: 1, name: "vinay", job: "Manager", salary: 80000 }, //object 1
+        { id: 2, name: "Sweety", job: "Salesman", salary: 40000 }, //object 2
+        { id: 3, name: "Arun", job: "Developer", salary: 60000 },
+        { id: 4, name: "Rekha", job: "Manager", salary: 90000 },
+        { id: 5, name: "Durga", job: "Salesman", salary: 45000 },
+        { id: 6, name: "Shiva", job: "Manager", salary: 55000 },
+        { id: 7, name: "Krishina", job: "Salesman", salary: 50000 },
+        { id: 8, name: "Parvathi", job: "Salesman", salary: 85000 },
+        { id: 9, name: "Narasimha", job: "developer", salary: 96000 },
+        { id: 10, name: "vinaykumar", job: "Salesman", salary: 87000 }
+
+    ];
+
+    function showEmployees() { // display emplyoess based on select job
+         //using this line get selected value from dropdown
+        let selectedJob = document.getElementById("jobSelect").value;
+
+         //using this line get reference to table body
+        let tbody = document.getElementById("tableBody");
+
+        tbody.innerHTML = ""; //previous data clear
+
+        // here use thefilter employees based on selected job
+        let filteredEmployees = (selectedJob == "All")  // here iam using ternary operater
+            ? employees // If all selected, take full array
+            : employees.filter(emp => emp.job == selectedJob); //filter by matching in this line  thid method return multiple values
+
+        if (filteredEmployees.length == 0) { // if not found employess
+            tbody.innerHTML = "<tr><td colspan='4'>No Employees Found</td></tr>";
+            return; // function stop execution
+        }
+
+  for (let emp of filteredEmployees) { //iteration purpose
+ //for of loop directly over array value Without using index
+ //in today class refering
+    tbody.innerHTML += `
+        <tr>
+            <td>${emp.id}</td>
+            <td>${emp.name}</td>
+            <td>${emp.job}</td>
+            <td>${emp.salary}</td>
+        </tr>
+    `;
+}
+    }
+</script>
+
+</body>
+</html>

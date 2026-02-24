@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Marks Analyzer</title>
+</head>
+<body>
+
+    <h1>Student Marks Analyzer (LEVEL-1)</h1>
+    <hr/>
+
+    <!-- Button to trigger analysis -->
+    <button onclick="analyzeMarks()">Analyze Marks</button>
+
+    <hr/>
+
+    <footer>
+        <mark>Note: Working with Array methods (reduce, map).</mark>    
+    </footer>
+    <hr/>
+
+    <!-- Output here will be displayed here -->
+    <div id="output"></div>
+
+    <script>
+        /*
+           analyzeMarks() ---- is the funcition name
+            Modular Function
+            All logic is placed inside one function 
+        */
+        function analyzeMarks(){
+
+            /*
+             here we can Store student marks in an array
+                let is used for array content can be modified later if needed
+            */
+            let marks = [78, 45, 89, 60, 72];  // array
+
+            /*
+                reduce() is used to calculate total
+                reduce() processes the entire array and returns a single value
+                here used Arrow function is used (=>)
+                sum = accumulator means store or hold data
+                mark = current value
+                0 = initial value of accumulator
+            */
+            let total = marks.reduce((sum, mark) => sum + mark, 0);
+
+            /*
+                Average calculation
+                const is used because value should not be reassigned
+            */
+            let average = total / marks.length;
+
+            /*
+                Ternary operator used to find pass or fail
+                If average-- >= 50 PASS else FAIL
+            */
+            let result = average >= 50 ? "PASS" : "FAIL";
+
+            /*
+                map() is used to process array elements
+                Here it simply returns each mark 
+                map() returns a new array
+            */
+            let processedMarks = marks.map(mark => mark);
+
+
+
+            console.log("Marks:", marks);
+            console.log("Total:", total);
+            console.log("Average:", average.toFixed(2));
+            console.log("Result:", result);
+
+            //  out put disppplay template literals allow inside variables using ${} in today class sir told
+            //  innerHTML is used to display dynamic content in the page 
+           // $ is directly print it inside HTMl
+           // join(, )------>Converts array into a string Adds comma space between elements
+           // to fixed(2)--->Limits number to 2 decimal places Returns a formatted string
+
+            document.getElementById("output").innerHTML = `
+                <h3>Marks: ${processedMarks.join(", ")}</h3>   
+                <h3>Total Marks: ${total}</h3>
+                <h3>Average Marks: ${average.toFixed(2)}</h3> 
+                <h3>Result: ${result}</h3>
+            `;
+        }
+    </script>
+
+</body>
+</html>

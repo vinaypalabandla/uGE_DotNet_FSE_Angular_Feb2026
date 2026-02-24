@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Cart Summary</title>
+</head>
+<body>
+
+<h2>Shopping Cart Invoice</h2>
+
+<pre id="output"></pre> <!-- Used to display formatted invoice -->
+
+<script type="module">
+
+// Function to calculate total using reduce()
+let calculateTotal = (products) => {
+    return products.reduce((total, product) =>
+        total + (product.price * product.quantity), 0);
+};
+
+// Product array
+let cart = [
+    { name: "Laptop", price: 50000, quantity: 1 },
+    { name: "Mouse", price: 500, quantity: 2 },
+    { name: "Keyboard", price: 1500, quantity: 1 }
+];
+
+// Create invoice lines using map()
+let invoiceLines = cart.map(product => `
+Product: ${product.name}
+Price: ${product.price}
+Quantity: ${product.quantity}
+Subtotal: ${product.price * product.quantity}
+-------------------------
+`).join("");
+
+// Calculate total
+const totalAmount = calculateTotal(cart);
+
+// Final invoice
+const invoice = `
+========= INVOICE =========
+${invoiceLines}
+TOTAL AMOUNT: ${totalAmount}
+===========================
+`;
+
+// Display in console
+console.log(invoice);
+
+// Display on web page
+document.getElementById("output").textContent = invoice;
+
+</script>
+
+</body>
+</html>
