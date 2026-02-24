@@ -1,0 +1,134 @@
+Day-7
+~~~~~
+
+
+Arrays in JavaScript
+~~~~~~~~~~~~~~~~~
+	let  ar1 =  [];	// empty array 
+	let  ar2 =  [10,20,30,40];		// array with elements 
+	let  ar3  =  new Array(5);		// array with size no elements  
+	
+	
+	ar1.length	:		property which returns no. of items in the array 
+	
+	
+Traverse array
+~~~~~~~~~~~~~
+
+
+	  // access items of array  
+	for(let i = 0; i < ar1.length; i++)
+	{
+		console.log(ar1[i]);
+	}
+	
+	for(let  i in  ar1)
+	{
+		console.log(ar1[i]);
+	}
+	
+	
+	for(let  item  of   ar1)
+	{
+		console.log( item );
+	}
+	
+	
+	
+	
+	
+1. push(item)
+2. pop()
+3. splice(start_index,  count )	
+
+		ar.splice(2,  1);		//  delete only one item i.e 2nd index 
+		ar.splice(2);	//  deletes all items from 2nd index 
+		ar.splice(0);	//  deletes all items  
+4. indexOf()
+		
+			ar.indexOf(item)	---	returns the index
+			
+5.  map()
+
+			
+		syntax:   	ar1.map(callback);
+							ar1.map(Math.sqrt);
+			
+ 
+
+String to Number 
+~~~~~~~~~~~~~~~	
+		
+Number()
+parseInt()
+parseFloat()
+
+
+
+Arrow functions
+~~~~~~~~~~~~~
+Arrow functions were introduced in ES6 (ECMAScript 2015) as a more concise way to write function expressions, using the => syntax. They are a popular feature in modern JavaScript, 
+
+
+
+let s1  =    {id : 10256, name : "Scott", course : "React"};
+let s2  =      {id : 10257, name : "Smith", course : "Angular"};
+
+   let studentsArray = [
+                {id : 10256, name : "Scott", course : "React"},
+                {id : 10257, name : "Smith", course : "Angular"},
+                {id : 10258, name : "Sam", course : "Vue"},
+                {id : 10259, name : "Sandy", course : "Node"},
+                {id : 10260, name : "Stephen", course : "Express"},
+            ];
+
+
+
+find()
+findIndex()
+filter()
+
+-----------------------------------------------------------------------
+
+Asynchronous programming
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+			a.  What is asynchronous programming?
+			
+				-->  Synchronous systems execute tasks sequentially, blocking progress until each operation completes, ensuring a strict, predictable order.   
+				
+				-->  Conversely, asynchronous systems allow tasks to run concurrently without waiting, improving efficiency and responsiveness by not blocking threads during I/O operations
+			
+				Eg:    AJAX -- asynchronous JavaScript and Xml 
+						 to communicate with server (api's)			
+			
+			b.  Why do we use promises in javascrpt?
+			
+					-->   in old versions, depends on the callbacks 
+					-->   in es6 (2025), promises concept was introduced 
+					-->   used to implement asynchronous programming easily 
+					
+						Promises are used in JavaScript to manage asynchronous operations (like fetching data from a server or running a timer) in a more structured, readable, and efficient way than traditional callbacks, thereby avoiding "callback hell". A promise acts as a placeholder for a value that will be available in the future.		
+					
+			
+			c.   What is the significance of async and await keywords?
+					
+					--> Simplify promise usage 
+					-->  The async and await keywords in JavaScript are used to write asynchronous code in a clean, synchronous-like manner, making it much easier to read, write, and maintain. They are essentially syntactical sugar built on top of standard JavaScript Promises. 
+			
+			d.   Why do we use fecth()  in javascrpt?
+			
+				 -->   fecth()   --- used to implement ajax for api calls (server communication)
+				 -->   fecth build on top of promise concept
+				
+				
+					fecth(url).then( callback );
+					fecth(url).then( (response) =>  
+					{
+								
+					});
+								
+				
+
+
+
