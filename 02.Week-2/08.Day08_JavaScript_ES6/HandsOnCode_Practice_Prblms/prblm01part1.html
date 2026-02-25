@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+</head>
+<body>
+
+<input type="text" id="city" placeholder="Enter city">
+<button id="btnPromise">Using Promise</button>
+<button id="btnAsync">Using Async/Await</button>
+
+<div id="result"></div>
+
+<script>
+
+const result = document.getElementById("result");
+
+const getWeatherPromise = () => { //run when Promise button clicked
+    const city = document.getElementById("city").value; // user input here
+
+    
+    fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}`) 
+        .then(res => res.json())
+        .then(locationData => {// contains api res
+            if (!locationData.results) throw new Error("City not found");
+
+            const { latitude, longitude, name } = locationData.results[0];//get 1st one object
+
+            
+            return fetch(
+                `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+            )
+            .then(res => res.json()) //convert whether res
+            .then(weatherData => displayWeather(name, weatherData));
+        })
+        .catch(err => result.innerHTML = `<p>${err.message}</p>`);
+};
+
+const getWeatherAsync = async () => {
+    try {
+        const city = document.getElementById("city").value;
+
+        
+        const locationRes = await fetch(
+            `https://geocoding-api.open-meteo.com/v1/search?name=${city}`
+        );
+        const locationData = await locationRes.json();
+
+        if (!locationData.results) throw new Error("City not found");
+
+        const { latitude, longitude, name } = locationData.results[0];
+
+       
+        const weatherRes = await fetch(
+            `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
+        );
+        const weatherData = await weatherRes.json();
+
+        displayWeather(name, weatherData);
+
+    } catch (err) {
+        result.innerHTML = `<p>${err.message}</p>`;
+    }
+};
+
+
+const displayWeather = (cityName, data) => {
+    result.innerHTML = `
+        <h3>${cityName}</h3>
+        <p>Temperature: ${data.current_weather.temperature}°C</p>
+        <p>Wind Speed: ${data.current_weather.windspeed} km/h</p>
+        <p>Weather Code: ${data.current_weather.weathercode}</p>
+    `;
+};
+
+
+document.getElementById("btnPromise")
+    .addEventListener("click", getWeatherPromise);
+
+document.getElementById("btnAsync")
+    .addEventListener("click", getWeatherAsync);
+
+</script>
+
+</body>
+</html>
