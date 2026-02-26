@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Polymorphism - Payment System</title>
+</head>
+<body>
+
+<h2>Payment System - Polymorphism Example</h2>
+
+<script>
+
+class Payment {
+    amount;
+    pay(amount) {
+        document.write("Processing payment<br/><br/>");
+    }
+}
+class CreditCardPayment extends Payment {
+
+    pay(amount) { //mthodd override from parent  
+        document.write("Paid"+ amount + " using Credit Card <br/><br/>");
+    }
+}
+class UPIPayment extends Payment {
+    pay(amount) {
+        document.write("Paid " + amount + " using UPI<br/>");
+    }
+}
+class CashPayment extends Payment {
+    pay(amount) {
+        document.write("Paid ₹" + amount + " using Cash<br/>");
+    }
+}
+const credit = new CreditCardPayment();
+const upi = new UPIPayment();
+const cash = new CashPayment();
+
+credit.pay(500);
+upi.pay(500);
+cash.pay(500);
+
+</script>
+
+</body>
+</html>

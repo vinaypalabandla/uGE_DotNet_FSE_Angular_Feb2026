@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vehicle Inheritance Example</title>
+</head>
+<body>
+<h2>Vehicle Management System</h2>
+<script>
+
+class Vehicle {
+     brand;
+     speed;
+    constructor(brand, speed) {
+        this.brand = brand;
+        this.speed = speed;  
+    }
+
+    displayInfo() {
+        document.write("Brand: " + this.brand + "<br>");
+        document.write("Speed: " + this.speed + " km/hour<br>");
+
+        console.log("Brand: " + this.brand);
+        console.log("Speed: " + this.speed);
+    }
+}
+
+class Car extends Vehicle {
+     fuelType;
+    constructor(brand, speed, fuelType) {
+        super(brand, speed);     // super mehtoscalls parent class constructor
+        this.fuelType = fuelType; //this is reference to current object
+    }
+
+    showCarDetails() {
+        document.write("Fuel Type: " + this.fuelType + "<br/><br/><br/>");
+        
+        console.log("Fuel Type: " + this.fuelType);
+    }
+}
+
+const car1 = new Car("KIA", 180, "Petrol");
+const car2 = new Car("THAR", 150, "Diseal");
+const car3 = new Car("TATA Siyara", 190, "Diseal");
+car1.displayInfo();
+car1.showCarDetails();
+car2.displayInfo();
+car2.showCarDetails();
+car3.displayInfo();
+car3.showCarDetails();
+</script>
+
+</body>
+</html>

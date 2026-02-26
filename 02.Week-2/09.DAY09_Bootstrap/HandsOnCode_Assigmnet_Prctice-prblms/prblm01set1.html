@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Class Example</title>
+</head>
+<body>
+<p>**************************************************</p>
+<h2>Student Details & Grades</h2>
+<p>**************************************************</p>
+<script>
+
+class Student {
+    name;
+    rollNumber;
+    marks;
+
+    constructor(name, rollNumber, marks) {
+        this.name = name;
+        this.rollNumber = rollNumber;
+        this.marks = marks;
+    }
+
+    getDetails() {
+        document.write("Name: " + this.name + "<br>");
+        document.write("Roll Number: " + this.rollNumber + "<br>");
+        document.write("Marks: " + this.marks + "<br>");
+
+        console.log("Name: " + this.name );
+        console.log("Roll Number: " + this.rollNumber);
+        console.log("Marks: " + this.marks );
+    }
+
+    getGrade() {
+        if (this.marks >= 90) {
+            return "A";
+        } else if (this.marks >= 75) {
+            return "B";
+        } else if (this.marks >= 50) {
+            return "C";
+        } else {
+            return "Fail";
+        }
+    }
+}
+
+const std1 = new Student("Vinay", 101, 92);
+const std2 = new Student("Rekha", 102, 68);
+const std3 = new Student("durga", 103, 68);
+const std4 = new Student("vini", 104, 20);
+
+std1.getDetails();
+document.write("Grade: " + std1.getGrade() + "<br/><br/>");
+console.log("Grade: " + std1.getGrade());
+
+
+std2.getDetails();
+document.write("Grade: " + std2.getGrade() + "<br/><br/>");
+console.log("Grade: " + std2.getGrade());
+
+std3.getDetails();
+document.write("Grade: " + std2.getGrade() + "<br/><br/>");
+console.log("Grade: " + std2.getGrade());
+
+std4.getDetails();
+document.write("Grade: " + std4.getGrade());
+console.log("Grade: " + std4.getGrade());
+</script>
+
+</body>
+</html>
