@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product List with Add to Cart Counter</title>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+
+    <style>
+        .product {
+            margin-bottom: 10px;
+        }
+
+        .added-msg {
+            margin-left: 8px;
+            color: green;
+        }
+
+        #cart {
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cart">
+        Cart Count: 
+        <span id="cart-count">0</span>
+    </div>
+
+    <div id="product-list">
+
+        <div class="product">
+            <p>Product 1</p>
+            <button class="add-btn" data-status="added">Add to Cart</button>
+            <span class="added-msg"></span>
+        </div>
+
+        <div class="product">
+            <p>Product 2</p>
+            <button class="add-btn" >Add to Cart</button>
+            <span class="added-msg"></span>
+        </div>
+
+        <div class="product">
+            <p>Product 3</p>
+            <button class="add-btn">Add to Cart</button>
+            <span class="added-msg"></span>
+        </div>
+
+        <div class="product">
+            <p>Product 4</p>
+            <button class="add-btn">Add to Cart</button>
+            <span class="added-msg"></span>
+        </div>
+
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            let count = 0;
+                $(".add-btn").click(function() {
+
+                    count++;
+                  $("#cart-count").text(count);   // display count update
+                  $(this).prop("disabled", true); 
+                 $(this).attr("data-status", "added"); 
+                   $(this).siblings(".added-msg").text("Added");
+
+});
+});
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<hmtl>
+    <head>
+
+        <title>Student FeedBack Form</title>
+    </head>
+
+<body>
+    <h2>Student FeedBack Form</h2
+        <hr/>
+
+        Name:
+        <input type="text" id ="name" placeholder="Enter name">
+        <br/><br/>
+
+        Email:
+        <input type ="email" id="email" placeholder="Enter email">
+        <br/><br/>
+
+        Course Rating:
+        <select id = "rating">
+            <option value="" >--Selecting Rating---</option>
+            <option>Excellent</option>
+            <option>Good</option>
+            <option>Average</option>
+            <option>Poor</option>
+        </select>
+        <br/><br/>
+
+        comments:
+        <br/>
+        <textarea id="comments" rows="4" cols="20"></textarea>
+        <br/><br/>
+
+        <input type="button" id="subBtn" value="Submit">
+         <br/><br/>
+       
+
+        <p id ="outPut"></p>
+        <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+
+        <script>
+            $(document).ready(function() {
+
+                $("#subBtn").click(function() {
+                    let name = $("#name").val();
+                    let email = $("#email").val();
+                    let rating = $("#rating").val();
+                    let comments = $("#coomments").val();
+
+                    if(name === "" || email === "") {
+                        $("#outPut").text("Please Enter both Name and Email. "  + name + "!").css("color", "red");
+                    }
+                    else {
+
+                        $("#outPut").text("Thank you for your feedBack, "  + name + "!").css("color", "green");
+                            $("#name").val(""); 
+                            $("#email").val("");
+                            $("#rating").val("");
+                            $("#comments").val("");
+                    }   
+
+                });
+            });
+        </script>
+
+
+</body>
+</hmtl>

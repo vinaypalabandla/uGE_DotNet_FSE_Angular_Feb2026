@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dynamic FAQ Toggle</title>
+
+    <style>
+        .faq-item {
+            margin-bottom: 10px;
+        }
+
+        .qn {
+            cursor: pointer;
+            font-weight: bold;
+            background-color: #f2f2f2;
+            padding: 8px;
+        }
+
+        .ans {
+            display: none;
+            padding: 8px;
+            border-left: 3px solid #007bff;
+        }
+
+        .active {
+            background-color: #d0e7ff;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>FAQ Section</h2>
+    <hr/>
+
+    <div class="faq-item">
+        <div class="qn">1. What is jQuery?</div>
+        <div class="ans">jQuery is a JavaScript library used for DOM manipulation.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="qn">2. Why use jQuery?</div>
+        <div class="ans">It simplifies JavaScript programming.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="qn">3. What is slideToggle()?</div>
+        <div class="ans">It shows and hides elements with sliding animation.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="qn">4. What is a selector?</div>
+        <div class="ans">Selectors are used to select HTML elements.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="qn">5. What is DOM manipulation?</div>
+        <div class="ans">It means modifying HTML content dynamically.</div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"></script>
+
+    <script>
+        $(document).ready(function() {
+           $(".qn").click(function() {
+
+          $(".qn").removeClass("active");  //remove active all  
+            $(this).addClass("active");       // then aply only curent active      
+
+           $(".ans").slideUp(); //hides aans all animation                
+          $(this).next(".ans").slideToggle(3000);  //visble
+
+});
+
+        });
+    </script>
+
+</body>
+</html>
