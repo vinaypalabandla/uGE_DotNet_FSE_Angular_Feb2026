@@ -1,3 +1,4 @@
+----SQL CONSTRAINTS BASED-----
 CREATE DATABASE EventDb;
 
 USE EventDb;
@@ -86,4 +87,5 @@ WHERE SessionId = 1002;
 
 -------------------------------------------
 INSERT INTO ParticipantEventDetails VALUES(1, 'vinay@gmail.com', 1, 1001, 1);
+
 INSERT INTO ParticipantEventDetails VALUES(2, 'admin@gmail.com', 2, 1002, 0);
