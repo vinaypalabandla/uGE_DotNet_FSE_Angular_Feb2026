@@ -6,17 +6,7 @@ The management team frequently accesses product and order summary reports. To si
 - Create a view that shows product name, brand name, category name, model year and list price.
 - Create a view that shows order details with customer name, store name and staff name.
 - Create appropriate indexes on foreign key columns.
-- Test performance improvement using execution plan.
-
-🛠️ Technical Constraints 
-- Views must not duplicate data.
-- Indexes should be created only on frequently searched columns.
-- Do not change table definitions.
-- Follow proper naming conventions.
-
-
-*/
-
+- Test performance improvement using execution plan.*/
 --=====================================================================================
 --2))=====================================================================================
 USE EcommDb;
@@ -51,7 +41,9 @@ select * FROM vw_OrderDetails;  -- 2nd
 CREATE NONCLUSTERED
 INDEX idx_products_brand_id
 ON products(brand_id);
+
 -- Test performance improvement using execution plan.
+
      sp_helpindex products;
 
 CREATE NONCLUSTERED 
@@ -62,7 +54,8 @@ ON products(category_id);
 
 CREATE NONCLUSTERED INDEX 
 idx_orders_customer_id
-ON orders(customer_id);----need to create  orders table in ECCom DB
+ON orders(customer_id);
 
 -- Test performance improvement using execution plan.
+
 sp_helpindex orders;
