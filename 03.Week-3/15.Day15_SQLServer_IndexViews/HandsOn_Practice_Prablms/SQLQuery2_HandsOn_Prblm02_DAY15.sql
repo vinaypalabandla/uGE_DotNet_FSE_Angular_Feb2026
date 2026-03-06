@@ -59,3 +59,4 @@ ON orders(customer_id);
 -- Test performance improvement using execution plan.
 
 sp_helpindex orders;
+
