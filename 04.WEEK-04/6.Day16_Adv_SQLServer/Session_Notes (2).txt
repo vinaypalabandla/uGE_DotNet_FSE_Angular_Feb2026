@@ -1,0 +1,104 @@
+Day16 
+~~~~~~ 
+
+Advanced SQL Server Concepts:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Stored Procedures
+User-Defined Functions
+Triggers and Cursors
+
+
+---------------------------------------------------------
+
+
+1.  Working with Stored Procedures in  SQL Server
+-------------------------------------------------------------------
+
+
+A stored procedure in SQL Server is 
+		a precompiled 
+		collection of one or more SQL statements and 
+		optional control-of-flow logic 
+				(like IF and WHILE statements,
+				and TRY-CATCH blocks) that is 
+		stored as a named object in the database.
+		
+
+
+
+
+
+    USP --- user defined stored PROCEDURE    (prefix)
+
+Step-1:  Create Procedure
+
+	CREATE PROCEDURE  usp_getEmpCount
+			--  Parameter declarations
+	AS
+	BEGIN
+				-- statements 
+	END;
+
+		
+Step-2:
+   EXECUTE  usp_getEmpCount
+   EXEC 		 usp_getEmpCount
+   
+   
+   ----------------------------------------------------------------
+   
+   
+   SELECT @param_empCount=  Count(*) FROM Emp WHERE Deptno=@param_deptno;
+   
+   
+   
+     Print ('No. of Employees working in ' + @dname + ' : '+  CAST(@param_empCount AS VARCHAR));
+   --------------------------------------------
+   
+   
+   
+   function  printDetails( studentObj )
+	{
+		
+	}
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   -----------------------------------------------
+   
+   
+   
+ 2.  User-Defined Functions
+ 
+ 
+a.  User-Defined Functions (UDFs) in SQL Server are reusable routines that accept parameters, perform an action (such as a complex calculation or data retrieval), and return the result as a value or a result set. 
+ 
+b. They help in modular programming, reduce network traffic, and can improve performance by caching execution plans.
+
+
+
+
+1.  Scalar Functions: These functions return a single data value of a predefined scalar type (e.g., INT, VARCHAR, FLOAT). The function body is typically enclosed in BEGIN...END blocks and can contain multiple T-SQL statements to achieve a result.
+
+2. Table-Valued Functions (TVFs): These functions return a TABLE data type (a result set of rows and columns).
+
+   
+   
+IS NULL Operator:     
+		SELECT * FROM Emps WHERE Deptno IS NULL;
+   
+   
+ISNULL()  function :    It allows you to replace the NULL value with a specified replacement value 
+   
+ISNULL(@Total, 0)		
+					If @Total is Null, then it replace with zero
+					If @Total, not null ,  it returns the value of @Total as it is
+   
+   
