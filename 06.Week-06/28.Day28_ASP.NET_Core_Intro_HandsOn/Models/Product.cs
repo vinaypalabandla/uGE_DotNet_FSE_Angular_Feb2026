@@ -1,4 +1,11 @@
-﻿namespace WebApplication1.Models
+
+// 2.  Create ASP.NET Core -  MVC Application to process product details 
+// 			a.   Index 	---	to display collection of products 
+// 			b.   Details ---  to display  single product information 
+			
+
+
+namespace WebApplication1.Models
 {
     public class Product
     {
