@@ -1,0 +1,28 @@
+﻿
+
+<h2>Addition Calculator</h2>
+
+<form method="post" asp-action="Add">
+
+    <div>
+        <label>Number 1:</label>
+        <input type="number" name="num1" />
+    </div>
+
+    <div>
+        <label>Number 2:</label>
+        <input type="number" name="num2" />
+    </div>
+
+    <br />
+
+    <button type="submit">Add</button>
+
+</form>
+
+<br />
+
+@if (ViewData["Result"] != null)
+{
+    <h3>Result: @ViewData["Result"]</h3>
+}
