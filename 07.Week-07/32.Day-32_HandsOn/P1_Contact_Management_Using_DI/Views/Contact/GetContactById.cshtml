@@ -1,0 +1,23 @@
+﻿@model ContactInfo
+
+<h2 class="text-center text-warning">Contact Details</h2>
+
+<div class="container mt-4" style="max-width:500px;">
+
+    <div class="card p-3 ">
+
+        <p><strong>Id:</strong> @Model.ContactId</p>
+        <p><strong>Name:</strong> @Model.FirstName @Model.LastName</p>
+        <p><strong>Company:</strong> @Model.CompanyName</p>
+        <p><strong>Email:</strong> @Model.EmailId</p>
+        <p><strong>Mobile:</strong> @Model.MobileNo</p>
+        <p><strong>Designation:</strong> @Model.Designation</p>
+
+        <div class="text-center mt-3">
+            <a href="/Contact/ShowContacts" class="btn btn-primary">Back
+            </a>
+        </div>
+
+    </div>
+
+</div>
