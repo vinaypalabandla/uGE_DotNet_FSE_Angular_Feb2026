@@ -1,0 +1,41 @@
+﻿@model List<Movie>
+
+<h2 class="text-center text-primary">Movie List</h2>
+
+<div class="container mt-4">
+
+    <div class="mb-3">
+        <a href="/Movie/Create" class="btn btn-success">Add/Create Movie</a>
+    </div>
+
+    <table class="table table-bordered ">
+        <thead class="table-dark">
+            <tr>
+                <th>Title</th>
+                <th>Genre</th>
+                <th>Release Date</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var m in Model)
+            {
+                <tr>
+                    <td>@m.Title</td>
+                    <td>@m.Genre</td>
+                    <td>@m.ReleaseDate.ToString("dd-MM-yyyy")</td>
+                    <td>@m.Price</td>
+                    <td>@m.Rating</td>
+                    <td>
+                        <a href="/Movie/Edit/@m.Id" class="btn btn-primary btn-sm">Update</a>
+                        <a href="/Movie/Delete/@m.Id" class="btn btn-danger btn-sm">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
