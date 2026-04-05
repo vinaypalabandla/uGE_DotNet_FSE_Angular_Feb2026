@@ -1,0 +1,26 @@
+﻿@model ContactInfo
+
+<form method="post">
+
+    <input asp-for="FirstName" placeholder="First Name" />
+    <input asp-for="LastName" placeholder="Last Name" />
+
+    <select asp-for="CompanyId">
+        <option>Select Company</option>
+        @foreach (var c in ViewBag.Companies)
+        {
+            <option value="@c.CompanyId">@c.CompanyName</option>
+        }
+    </select>
+
+    <select asp-for="DepartmentId">
+        <option>Select Department</option>
+        @foreach (var d in ViewBag.Departments)
+        {
+            <option value="@d.DepartmentId">@d.DepartmentName</option>
+        }
+    </select>
+
+    <button type="submit">Save</button>
+
+</form>
