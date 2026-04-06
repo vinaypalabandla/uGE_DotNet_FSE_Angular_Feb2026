@@ -1,0 +1,67 @@
+﻿@model WebApplication5.Models.ContactInfo
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Contact</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit" method="post">
+
+            <input type="hidden" asp-for="ContactId" />
+
+            <div class="form-group mb-3">
+                <label asp-for="FirstName"></label>
+                <input asp-for="FirstName" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="LastName"></label>
+                <input asp-for="LastName" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="EmailId"></label>
+                <input asp-for="EmailId" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="MobileNo"></label>
+                <input asp-for="MobileNo" class="form-control" />
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="Designation"></label>
+                <input asp-for="Designation" class="form-control" />
+            </div>
+
+            
+            <div class="form-group mb-3">
+                <label>Company</label>
+                <select asp-for="CompanyId" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Companies, "CompanyId", "CompanyName", Model.CompanyId))">
+                    <option value="">Select Company</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <label>Department</label>
+                <select asp-for="DepartmentId" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.Departments, "DepartmentId", "DepartmentName", Model.DepartmentId))">
+                    <option value="">Select Department</option>
+                </select>
+            </div>
+
+            <div class="form-group mb-3">
+                <input type="submit" value="Update" class="btn btn-primary" />
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="ShowContacts">Back to List</a>
+</div>
