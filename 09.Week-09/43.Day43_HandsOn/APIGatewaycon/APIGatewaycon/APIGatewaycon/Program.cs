@@ -28,10 +28,10 @@ namespace APIGatewaycon
                         ValidateAudience = true,
                         ValidateIssuerSigningKey = true,
 
-                        ValidIssuer = "AuthService",
-                        ValidAudience = "Microservices",
+                        ValidIssuer = "AuthApi",
+                        ValidAudience = "ApiUsers",
                         IssuerSigningKey = new SymmetricSecurityKey(
-                            Encoding.UTF8.GetBytes("THIS_IS_SECRET_KEY_12345"))
+                            Encoding.UTF8.GetBytes("THIS_IS_IMPORTANT_KEY_ASKJFALKDJF57454897454"))
                     };
                 });
 
