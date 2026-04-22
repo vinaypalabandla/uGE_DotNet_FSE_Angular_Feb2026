@@ -1,0 +1,4 @@
+C:\Users\vinay\source\repos\ContactMangemntCodeAnlysis\ContactMangemntCodeAnlysis\obj\Debug\net10.0\ContactMangemntCodeAnlysis.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\vinay\source\repos\ContactMangemntCodeAnlysis\ContactMangemntCodeAnlysis\obj\Debug\net10.0\ContactMangemntCodeAnlysis.AssemblyInfoInputs.cache
+C:\Users\vinay\source\repos\ContactMangemntCodeAnlysis\ContactMangemntCodeAnlysis\obj\Debug\net10.0\ContactMangemntCodeAnlysis.AssemblyInfo.cs
+C:\Users\vinay\source\repos\ContactMangemntCodeAnlysis\ContactMangemntCodeAnlysis\obj\Debug\net10.0\ContactMangemntCodeAnlysis.csproj.CoreCompileInputs.cache
