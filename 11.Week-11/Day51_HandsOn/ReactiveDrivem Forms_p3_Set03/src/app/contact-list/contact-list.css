@@ -1,0 +1,11 @@
+.active-contact {
+  background-color: #e6ffe6;
+}
+
+.inactive-contact {
+  background-color: #ffe6e6;
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}

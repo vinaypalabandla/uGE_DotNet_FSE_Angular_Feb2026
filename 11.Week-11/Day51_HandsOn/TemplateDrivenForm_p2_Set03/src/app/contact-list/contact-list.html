@@ -1,0 +1,40 @@
+<h2>Contact List</h2>
+
+<!-- No Contacts -->
+<div *ngIf="contacts.length === 0; else showTable">
+  <p>No Contacts Available</p>
+</div>
+
+<!-- Table -->
+<ng-template #showTable>
+  <table border="1" width="100%">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Status</th>
+    </tr>
+
+    <tr *ngFor="let c of contacts"
+        [ngClass]="c.isActive ? 'active-contact' : 'inactive-contact'"
+        [ngStyle]="{'color': c.isActive ? 'green' : 'red'}">
+
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.email}}</td>
+      <td>{{c.phone}}</td>
+
+      <td>
+        <span *ngIf="c.isActive; else inactiveBlock">
+          Active Contact
+        </span>
+
+        <ng-template #inactiveBlock>
+          Inactive Contact
+        </ng-template>
+      </td>
+
+    </tr>
+  </table>
+</ng-template>

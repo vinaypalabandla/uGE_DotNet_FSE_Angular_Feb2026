@@ -1,0 +1,78 @@
+
+
+ <!-- <app-contact-list></app-contact-list> -->
+<h2 class="title">Contact Entry Form</h2>
+
+<div class="container">
+
+  <form #contactForm="ngForm" (ngSubmit)="add(contactForm)" class="form-box">
+
+   <label>Id</label>
+    <input name="id" [(ngModel)]="contact.id" required #id="ngModel">
+    <small *ngIf="name.invalid && name.dirty" class="error">
+      ID is required
+    </small> 
+
+    <label>Name</label>
+    <input name="name" [(ngModel)]="contact.name" required #name="ngModel">
+    <small *ngIf="name.invalid && name.dirty" class="error">
+      Name is required
+    </small>  
+    
+   
+    <label>Email</label>
+    <input name="email" [(ngModel)]="contact.email" required email #email="ngModel">
+    <small *ngIf="email.invalid && email.dirty" class="error">
+      Enter valid email
+    </small>
+  
+   
+    <label>Phone</label>
+    <input name="phone" [(ngModel)]="contact.phone" required minlength="10" #phone="ngModel">
+    <small *ngIf="phone.invalid && phone.dirty" class="error">
+      Phone must be 10 digits
+    </small>
+
+    
+    <label>
+      <input type="checkbox" name="isActive" [(ngModel)]="contact.isActive">
+      Active
+    </label>
+
+    <button type="submit" [disabled]="contactForm.invalid">
+      Add Contact
+    </button>
+
+  </form>
+
+  <hr>
+
+  <h3>Contact List</h3>
+
+  <div *ngIf="contacts.length === 0">
+    No Contacts Available
+  </div>
+
+  <table *ngIf="contacts.length > 0">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Status</th>
+    </tr>
+
+    <tr *ngFor="let c of contacts">
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.email}}</td>
+      <td>{{c.phone}}</td>
+      <td>
+        <span [ngStyle]="{'color': c.isActive ? 'green' : 'red'}">
+          {{c.isActive ? 'Active' : 'Inactive'}}
+        </span>
+      </td>
+    </tr>
+  </table>
+
+</div>
