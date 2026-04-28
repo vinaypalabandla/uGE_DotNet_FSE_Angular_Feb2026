@@ -1,0 +1,52 @@
+.title {
+  text-align: center;
+  color: purple;
+}
+
+.container {
+  width: 400px;
+  margin: auto;
+}
+
+.form-box {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 8px;
+  padding: 6px;
+}
+
+button {
+  background-color: purple;
+  color: white;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: gray;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 5px;
+  text-align: center;
+}
+
+tr:hover {
+  background-color: #f2f2f2;
+}
