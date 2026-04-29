@@ -1,0 +1,8 @@
+<h2>Contact List</h2>
+
+<div class="card" *ngFor="let c of contacts">
+  <p><b>{{c.name}}</b></p>
+  <p>{{c.phone}}</p>
+
+  <a [routerLink]="['/contact', c.id]" class="view-btn">View</a>
+</div>

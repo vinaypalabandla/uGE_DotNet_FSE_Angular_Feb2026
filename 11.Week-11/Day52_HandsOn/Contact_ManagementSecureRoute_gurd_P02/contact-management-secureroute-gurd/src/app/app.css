@@ -1,0 +1,55 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f5f7fa;
+}
+
+.container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+h1 {
+  color: #6a0dad;
+}
+
+.auth-box {
+  margin: 20px;
+}
+
+.btn {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 6px;
+  background-color: #6a0dad;
+  color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #4b0082;
+}
+
+.logged-in {
+  color: green;
+  font-weight: bold;
+}
+
+.logged-out {
+  color: red;
+  font-weight: bold;
+}
+
+nav {
+  margin: 20px 0;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #6a0dad;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}

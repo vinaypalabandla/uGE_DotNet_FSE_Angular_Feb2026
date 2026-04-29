@@ -1,0 +1,26 @@
+<div class="container">
+
+  <h1>Contact Management</h1>
+
+  <div class="auth-box">
+    <button (click)="toggleLogin()" class="btn">
+      {{ authService.isLoggedIn ? 'Logout' : 'Login' }}
+    </button>
+
+    <p>
+      Status: 
+      <span [class.logged-in]="authService.isLoggedIn"
+            [class.logged-out]="!authService.isLoggedIn">
+        {{ authService.isLoggedIn ? 'Logged In' : 'Logged Out' }}
+      </span>
+    </p>
+  </div>
+
+  <nav>
+    <a routerLink="/contacts">Contacts</a>
+    <a routerLink="/add-contact">Add Contact</a>
+  </nav>
+
+  <router-outlet></router-outlet>
+
+</div>
