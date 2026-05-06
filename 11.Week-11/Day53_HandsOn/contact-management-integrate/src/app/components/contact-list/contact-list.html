@@ -1,0 +1,53 @@
+<h1 style="text-align:center;">Welcome to Contact Management Application!</h1>
+
+
+<hr>
+
+<h3>API Calls using HTTP Client in Angular</h3>
+
+
+<input [(ngModel)]="newContact.name" placeholder="Name">
+<input [(ngModel)]="newContact.email" placeholder="Email">
+<input [(ngModel)]="newContact.phone" placeholder="Phone">
+<input [(ngModel)]="newContact.categoryId" placeholder="Category Id">
+<!-- <input [(ngModel)]="searchId" placeholder="Enter Contact ID"> -->
+<br><br>
+
+<button (click)="getContacts()">Get Contacts</button>
+<button (click)="addContact()">Add Contact</button>
+<button (click)="updateContact()">Update Contact</button>
+<hr>
+<input [(ngModel)]="searchId" placeholder="Enter Contact ID">
+<button (click)="getContactById()">Get Contact By ID</button>
+<br>
+<hr>
+
+<table border="1" width="100%" style="border-collapse: collapse;">
+
+  <thead style="background-color: lightgray;">
+    <tr>
+      <th>Contact Id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Category Id</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of data">
+      <td>{{item.contactId}}</td>
+      <td>{{item.name}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.phone}}</td>
+      <td>{{item.categoryId}}</td>
+
+      <td>
+        <button (click)="deleteContact(item.contactId)">Remove</button>
+        <button (click)="editContact(item)">Edit</button>
+      </td>
+    </tr>
+  </tbody>
+
+</table>
